@@ -61,10 +61,12 @@ class MongoDBAlumnoRepository:
             if not self.db['materias'].find_one({"nombre": materia}):
                 raise ValueError(f"La materia '{materia}' no existe")
 
+        # Guardar solo los nombres de las materias en la lista
         self.collection.update_one(
             {"matricula": matricula},
             {"$addToSet": {"materias": {"$each": materias}}}
         )
+
     
     def get_materias(self, matricula):
         query = {"matricula": matricula}

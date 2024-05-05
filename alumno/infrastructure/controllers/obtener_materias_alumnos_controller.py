@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from alumno.application.usecases.get_materias_alumno import GetMateriasAlumno
+from alumno.application.usecases.obtener_materias_alumno import GetMateriasAlumno
 from alumno.infrastructure.repositories.alumno_repository import MongoDBAlumnoRepository
 
 get_materias_blueprint = Blueprint('get_materias', __name__)
